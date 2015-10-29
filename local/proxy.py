@@ -765,6 +765,9 @@ class GAEProxyHandler(SimpleProxyHandler):
         if not common.PROXY_ENABLE:
             logging.info('resolve common.IPLIST_ALIAS names=%s to iplist', list(common.IPLIST_ALIAS))
             common.resolve_iplist()
+            # print common.IPLIST_ALIAS
+            #common.IPLIST_ALIAS = OrderedDict([('google_hk', ['216.58.216.102']), ('google_cn', ['216.58.216.102'])])
+            #common.IPLIST_ALIAS = dict(("google_hk", "216.58.216.102"))
         random.shuffle(common.GAE_APPIDS)
         self.__class__.handler_plugins['gae'] = GAEFetchPlugin(common.GAE_APPIDS, common.GAE_PASSWORD, common.GAE_PATH, common.GAE_MODE, common.GAE_CACHESOCK, common.GAE_KEEPALIVE, common.GAE_OBFUSCATE, common.GAE_PAGESPEED, common.GAE_VALIDATE, common.GAE_OPTIONS)
         if not common.PROXY_ENABLE:
